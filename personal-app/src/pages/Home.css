@@ -1,0 +1,246 @@
+/* Fixed typing animation that won't affect header */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 5px solid #fff;
+  width: 12ch; /* Set fixed width instead of animating from 0 */
+  animation: typing 3s steps(12) infinite alternate, blink 0.7s step-end infinite;
+  display: inline-block;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+@keyframes typing {
+  from { 
+    width: 0;
+    max-width: 0; /* Use max-width instead of width for smoother animation */
+  }
+  to { 
+    width: 12ch;
+    max-width: 12ch;
+  }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Alternative approach - use clip-path instead of width animation */
+.typing-alternative {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 5px solid #fff;
+  width: 12ch; /* Fixed width */
+  animation: typewriter 3s steps(12) infinite alternate, blink 0.7s step-end infinite;
+  display: inline-block;
+  transform: translateZ(0);
+}
+
+@keyframes typewriter {
+  from { 
+    clip-path: inset(0 100% 0 0);
+  }
+  to { 
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Prevent typing container from affecting layout */
+.typing-container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style; /* CSS containment to prevent layout shifts */
+}
+
+/* Ensure header stays completely isolated */
+header {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  position: fixed !important;
+  contain: layout style;
+}
+
+/* From Uiverse.io by Danishrehman786 */ 
+.download-button {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border: 2px solid #F2D2BD;
+  border-radius: 5px;
+  background-color: #F2D2BD;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    /* Outer shadow */ inset 0 1px 3px rgba(255, 255, 255, 0.3); /* Inner shadow */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.2s;
+}
+
+.download-button::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  z-index: 1;
+  transition:
+    top 0.5s ease-in-out,
+    bottom 0.5s ease-in-out;
+}
+
+.download-button:hover::before {
+  top: 0;
+  bottom: 0;
+}
+
+.download-button:hover {
+  background-color: #465243; /* Highlight color on hover */
+  color: #fff;
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.download-button .icon {
+  position: absolute;
+  left: 20px;
+}
+
+.download-button .icon svg {
+  width: 24px;
+  color:black;
+  height: 24px;
+}
+.download-button .label {
+  position: relative;
+  z-index: 10;
+}
+
+.download-button .loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    -225deg,
+    #ff7402 0%,
+    #ffe700 50%,
+    #fff55e 100%
+  );
+  filter: blur(20px);
+  z-index: -1;
+  animation: animate 0.8s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* circularanimate */
+.circle-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.circle-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 20s linear infinite;
+}
+
+.center-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hello-text {
+  margin-top: 340px; /* pushes Hello below circle */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* //cards */
+/* From Uiverse.io by bhaveshxrawat */ 
+.card {
+  width: 350px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+   border-left: 10px solid #c68d70;
+  /* 1) initial inner background */
+  background: #DAC5A7;
+}
+
+/* text */
+.card h3 {
+  position: relative;
+  z-index: 4;
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+
+/* 3) black wipe overlay (left → right) */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 4px;               /* leave space for the border ring */
+  border-radius: 16px;
+  background: black;        /* color that wipes in */
+  z-index: 2;
+  transform: scaleX(0);     /* start hidden */
+  transform-origin: left;   /* grow from left */
+  transition: transform 1.2s ease; /* slow & smooth */
+}
+
+.card:hover::after {
+  transform: scaleX(1);     /* wipe fully */
+}
+
+.card:hover h3 {
+  color: white;
+}
+
