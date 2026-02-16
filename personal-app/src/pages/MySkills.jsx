@@ -16,7 +16,7 @@ const MySkills = () => {
   ];
 
   return (
-    <div className="bg-black py-12 px-6">
+    <div className="bg-[#273036] py-12 px-6">
       {/* Heading */}
       <h1 className="text-white font-bold text-5xl text-center mb-10">
         My Skills

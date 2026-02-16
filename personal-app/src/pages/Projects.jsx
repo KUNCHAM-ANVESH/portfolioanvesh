@@ -30,7 +30,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="bg-black py-12">
+    <div className="bg-[#273036] py-12">
       <h1 className="text-white text-5xl font-bold text-center mb-10">
         My Projects
       </h1>

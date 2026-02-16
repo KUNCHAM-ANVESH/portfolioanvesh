@@ -2,7 +2,7 @@ import React from "react";
 import Anveshicon from "../assets/Anvesh Icon -white.png";
 const Footer = () => {
   return (
-    <footer className="bg-[#DAC5A7] text-black py-10">
+    <footer className="bg-[#FF5500] text-white py-10">
       <div className="container mx-auto px-6 md:px-12">
         {/* Top Sections */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-black my-6"></div>
+        <div className="border-t border-white my-6"></div>
 
         {/* Bottom with Logo */}
         <div className="flex flex-col md:flex-row justify-between items-center">

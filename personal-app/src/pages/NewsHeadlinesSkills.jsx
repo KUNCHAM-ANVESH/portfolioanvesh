@@ -18,9 +18,9 @@ const NewsHeadlinesSkills = () => {
   return (
     <div className="w-full bg from-red-600 to-red-800  py-4 overflow-hidden relative mt-15">
       {/* Scrolling Headlines Container */}
-      <div className="relative bg-[#DAC5A7] bg-opacity-20 py-3">
+      <div className="relative bg-[#FFF7F2] bg-opacity-20 py-3">
         <div className="flex items-center">
-          <div className="bg-black  text-white px-3 py-1 font-bold text-sm mr-4 ml-4 rounded">
+          <div className="bg-[#273036]  text-white px-3 py-1 font-bold text-sm mr-4 ml-4 rounded">
             Skills
           </div>
           
