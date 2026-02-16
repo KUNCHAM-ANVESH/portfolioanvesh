@@ -8,6 +8,9 @@
   animation: typing 3s steps(12) infinite alternate, blink 0.7s step-end infinite;
   display: inline-block;
   transform: translateZ(0); /* Hardware acceleration */
+
+
+  
 }
 
 
